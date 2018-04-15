@@ -30,3 +30,17 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name('gspread-april-2c
 gc = gspread.authorize(credentials)
 
 wks = gc.open("Where is the money Lebowski?").sheet1
+
+
+ 4
+down vote
+accepted
+
+Try to change your scope variable to the following:
+
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+
+Make sure Drive API is enabled in API console.
+
+gspread has been upgraded and it's now based on API v4. It's faster but it requires updates in scope
